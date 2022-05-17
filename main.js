@@ -84,6 +84,9 @@ let gibsonPoints = 0;
 let williamsPoints = 0;
 let gilikinPoints = 0;
 let questionPoints = 3;
+let wager1 = 0;
+let wager2 = 0;
+let wager3 = 0;
 
 
 function gamePlay(){
@@ -93,6 +96,9 @@ function gamePlay(){
     correct.addEventListener('click', event =>{
         if(currentPoints == 'gibsons'){
             gibsonPoints += questionPoints
+            if(questionPoints == 0){
+                gibsonPoints += wager1
+            }
             gibsons.innerText =  `${gibsonPoints}`
             currentPoints = 'williams';
             gibsonName.style.textDecoration = "none";
@@ -101,6 +107,9 @@ function gamePlay(){
         }
         else if(currentPoints == 'williams'){
             williamsPoints += questionPoints
+            if(questionPoints == 0){
+                williamsPoints += wager2
+            }
             williams.innerText =  `${williamsPoints}`
             currentPoints ='gilikin';
             williamsName.style.textDecoration = "none";
@@ -109,6 +118,9 @@ function gamePlay(){
         }
         else{
             gilikinPoints += questionPoints
+            if(questionPoints == 0){
+                gilikinPoints += wager3
+            }
             gilikin.innerText =  `${gilikinPoints}`
             currentPoints = 'gibsons';
             gilikinName.style.textDecoration = "none";
@@ -121,6 +133,9 @@ function gamePlay(){
     incorrect.addEventListener('click', event =>{
         if(currentPoints == 'gibsons'){
             gibsonPoints -= questionPoints
+            if(questionPoints == 0){
+                gibsonPoints -= wager1
+            }
             gibsons.innerText =  `${gibsonPoints}`
             currentPoints = 'williams';
             gibsonName.style.textDecoration = "none";
@@ -128,6 +143,9 @@ function gamePlay(){
         }
         else if(currentPoints == 'williams'){
             williamsPoints -= questionPoints
+            if(questionPoints == 0){
+                williamsPoints -= wager2
+            }
             williams.innerText =  `${williamsPoints}`
             currentPoints ='gilikin';
             williamsName.style.textDecoration = "none";
@@ -136,6 +154,9 @@ function gamePlay(){
         }
         else{
             gilikinPoints -= questionPoints
+            if(questionPoints == 0){
+                gilikinPoints -= wager3
+            }
             gilikin.innerText =  `${gilikinPoints}`
             currentPoints = 'gibsons';
             gilikinName.style.textDecoration = "none";
@@ -179,4 +200,43 @@ double.addEventListener("click", event=>{
 gamePlay()
 
 
+let final = document.getElementById("final");
+let container = document.getElementById("container");
+let finalJep = document.getElementById("finalJep");
+let overlay = document.getElementById("overlay");
+
+final.addEventListener("click", event=>{
+    questionPoints = 0;
+    container.innerHTML = "";
+    fetch('https://jservice.io/api/random', {mode: 'cors',})
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+        finalJep.innerHTML = `${response[0].category.title}`
+        questionFinal = `${response[0].question}`
+        answerFinal = `${response[0].answer}`
+        overlay.style.display = "grid";
+        overlay.addEventListener("submit", event =>{
+            let overlay = document.getElementById("overlayForm");
+            overlay.style.display = "none";
+            wager1 = overlay.elements["number1"];
+            wager2 = overlay.elements["number2"];
+            wager3 = overlay.elements["number3"];
+            wager1 = parseInt(wager1.value);
+            wager2 = parseInt(wager2.value);
+            wager3 = parseInt(wager3.value);
+            finalJep.innerHTML = `${questionFinal} CLICK HERE FOR ANSWER`;
+            finalJep.addEventListener("click", event=>{
+                finalJep.innerHTML = `${answerFinal}`;
+            })
+            
+
+        })
+
+
+    })
+
+
+});
 

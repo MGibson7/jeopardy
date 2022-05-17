@@ -14,7 +14,8 @@
         
 
     </div>
-    <div class= "container">
+    <div id="finalJep"></div>
+    <div class = "container" id= "container">
         <div id = "one">
             <h4 class = "questVal">
             </h4>
@@ -149,6 +150,35 @@
     </div>
 
     <div id = "final">CLICK HERE FOR FINAL JEOPARDY</div>
+
+    <div id="overlay">
+            <form action="" id = "overlayForm" onsubmit = "return false">
+                <h1>FINAL JEP WAGER AMOUNT</h1>
+                <p>Write your wager amount down and then all reveal at once. Then enter amount in number format no commas</p>
+                
+              <div>
+                <label for="number">Team 1 Amount:</label>
+                <input type="number" id="number1" name="number1" required>
+
+              </div>
+              <div>
+                <label for="number">Team 2 Amount:</label>
+                <input type="number" id="number2" name="number2" required>
+
+              </div>
+              <div>
+                <label for="number">Team 3 Amount:</label>
+                <input type="number" id="number3" name="number3" required>
+
+              </div>
+                
+              
+                  <div>
+                    <input type="submit" id = submit name = "submit" value = "submit">
+
+                  </div>
+            </form>
+        </div> 
 
     
 
