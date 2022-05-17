@@ -100,8 +100,22 @@ body{
     }
 
     .teams{
-        font-size: 3vh;
+        font-size: 2vh;
         margin-left: 0.5vw;
+    }
+
+    #finalJep{
+        font-size: 5vh;
+        color: cyan;
+        text-align: center;
+    }
+
+    #overlay{
+        top: 10vh;
+    }
+
+    .container{
+        padding: 0vw;
     }
 
   
