@@ -65,10 +65,16 @@ body{
     cursor: pointer;
 }
 
+#final{
+    margin-top: 5vh;
+    font-size: 5vh;
+}
+
 @media screen and (max-width:1000px){
 
     .container{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 0.9fr);
+        font-size: 1.5vh;
         
     }
 
