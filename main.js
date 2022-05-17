@@ -226,7 +226,7 @@ final.addEventListener("click", event=>{
             wager1 = parseInt(wager1.value);
             wager2 = parseInt(wager2.value);
             wager3 = parseInt(wager3.value);
-            finalJep.innerHTML = `${questionFinal} CLICK HERE FOR ANSWER`;
+            finalJep.innerHTML = `${questionFinal} \n CLICK HERE FOR ANSWER`;
             finalJep.addEventListener("click", event=>{
                 finalJep.innerHTML = `${answerFinal}`;
             })
