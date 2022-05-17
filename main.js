@@ -43,7 +43,7 @@ let answer = {};
 
 function gameBoard(){
     for (let slot in slots){
-        fetch('http://jservice.io/api/random', {mode: 'cors',})
+        fetch('https://jservice.io/api/random', {mode: 'cors',})
     .then(function(response) {
       return response.json();
     })
