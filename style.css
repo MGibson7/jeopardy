@@ -40,3 +40,6 @@ body{
     text-decoration: underline;
 }
 
+.reveal{
+    display: none;
+}
