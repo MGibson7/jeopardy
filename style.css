@@ -64,3 +64,20 @@ body{
 .cat *{
     cursor: pointer;
 }
+
+@media screen and (max-width:1000px){
+
+    .container{
+        grid-template-columns: repeat(3, 1fr);
+        
+    }
+
+    .teams{
+        font-size: 3vh;
+        margin-left: 0.5vw;
+    }
+
+  
+    
+
+}
