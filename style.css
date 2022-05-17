@@ -104,6 +104,10 @@ body{
         margin-left: 0.5vw;
     }
 
+    .points div{
+        font-size: 2vh;
+    }
+
     #finalJep{
         font-size: 5vh;
         color: cyan;
@@ -111,7 +115,7 @@ body{
     }
 
     #overlay{
-        top: 10vh;
+        top: 0vh;
     }
 
     .container div{
