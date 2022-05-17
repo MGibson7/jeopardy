@@ -48,11 +48,13 @@ function gameBoard(){
       return response.json();
     })
     .then(function(response) {
+        reveals[slot].style.display = "none";
         slots[slot].innerText = `${response[0].category.title}`
         question[slot] = response[0].question;
         answer[slot] = response[0].answer;
         slots[slot].addEventListener('click', event =>{
             slots[slot].innerText = `${response[0].question}`
+
             reveals[slot].style.display = "grid";
             reveals[slot].addEventListener('click', event =>{
                 reveals[slot].innerText = `${response[0].answer}`
@@ -70,5 +72,111 @@ function gameBoard(){
 
 
 gameBoard();
+
+let gibsonName = document.getElementById("gib");
+let williamsName = document.getElementById("wil");
+let gilikinName = document.getElementById("gil");
+let gibsons = document.getElementById("gibsPoints");
+let williams = document.getElementById("wilPoints");
+let gilikin = document.getElementById("gilPoints");
+let currentPoints = 'gibsons';
+let gibsonPoints = 0;
+let williamsPoints = 0;
+let gilikinPoints = 0;
+let questionPoints = 3;
+
+
+function gamePlay(){
+    let correct = document.getElementById("correct");
+    let incorrect = document.getElementById("incorrect");
+    let pass = document.getElementById("pass");
+    correct.addEventListener('click', event =>{
+        if(currentPoints == 'gibsons'){
+            gibsonPoints += questionPoints
+            gibsons.innerText =  `${gibsonPoints}`
+            currentPoints = 'williams';
+            gibsonName.style.textDecoration = "none";
+            williamsName.style.textDecoration = "underline";
+
+        }
+        else if(currentPoints == 'williams'){
+            williamsPoints += questionPoints
+            williams.innerText =  `${williamsPoints}`
+            currentPoints ='gilikin';
+            williamsName.style.textDecoration = "none";
+            gilikinName.style.textDecoration = "underline";
+
+        }
+        else{
+            gilikinPoints += questionPoints
+            gilikin.innerText =  `${gilikinPoints}`
+            currentPoints = 'gibsons';
+            gilikinName.style.textDecoration = "none";
+            gibsonName.style.textDecoration = "underline";
+
+        }
+
+
+    })
+    incorrect.addEventListener('click', event =>{
+        if(currentPoints == 'gibsons'){
+            gibsonPoints -= questionPoints
+            gibsons.innerText =  `${gibsonPoints}`
+            currentPoints = 'williams';
+            gibsonName.style.textDecoration = "none";
+            williamsName.style.textDecoration = "underline";
+        }
+        else if(currentPoints == 'williams'){
+            williamsPoints -= questionPoints
+            williams.innerText =  `${williamsPoints}`
+            currentPoints ='gilikin';
+            williamsName.style.textDecoration = "none";
+            gilikinName.style.textDecoration = "underline";
+
+        }
+        else{
+            gilikinPoints -= questionPoints
+            gilikin.innerText =  `${gilikinPoints}`
+            currentPoints = 'gibsons';
+            gilikinName.style.textDecoration = "none";
+            gibsonName.style.textDecoration = "underline";
+
+        }
+
+
+    })
+    pass.addEventListener('click', event =>{
+        if(currentPoints == 'gibsons'){
+            currentPoints = 'williams';
+            gibsonName.style.textDecoration = "none";
+            williamsName.style.textDecoration = "underline";
+        }
+        else if(currentPoints == 'williams'){
+            currentPoints ='gilikin';
+            williamsName.style.textDecoration = "none";
+            gilikinName.style.textDecoration = "underline";
+
+        }
+        else{
+            currentPoints = 'gibsons';
+            gilikinName.style.textDecoration = "none";
+            gibsonName.style.textDecoration = "underline";
+
+        }
+
+
+    })
+    
+}
+
+let double = document.getElementById("double");
+
+double.addEventListener("click", event=>{
+    questionPoints = 6;
+    gameBoard()
+})
+
+gamePlay()
+
 
 

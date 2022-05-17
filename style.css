@@ -7,6 +7,13 @@ body{
     text-align: center;
 }
 
+#points{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 0.5vh solid yellow;
+
+}
+
 .container{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -16,7 +23,7 @@ body{
 }
 
 .container div{
-    background-color: blue;
+    background-color: darkblue;
     color: yellow;
     padding-left: 1vw;
     padding-right: 1vw;
@@ -36,7 +43,7 @@ body{
 
 }
 
-#gib, #wil, #gil{
+#gib{
     text-decoration: underline;
 }
 
@@ -47,4 +54,13 @@ body{
 
 .reveal:hover{
     cursor:pointer;
+}
+
+#points *:hover{
+    cursor:pointer;
+    transform: scale(1.3);
+}
+
+.cat *{
+    cursor: pointer;
 }
