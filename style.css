@@ -42,4 +42,9 @@ body{
 
 .reveal{
     display: none;
+    
+}
+
+.reveal:hover{
+    cursor:pointer;
 }
