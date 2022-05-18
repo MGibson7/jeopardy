@@ -7,6 +7,21 @@ body{
     text-align: center;
 }
 
+
+#new:hover{
+    cursor:pointer;
+}
+
+#new{
+    margin-top: 2vh;
+}
+
+button{
+    background-color: yellow;
+    color: blue;
+    max-width: 4vw;
+}
+
 #points{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -28,6 +43,11 @@ body{
     padding-right: 1vw;
     font-size: 2.5vh;
     text-align: center;
+    border-radius: 25vw;
+}
+
+.container div *:hover{
+    cursor: pointer;
 }
 
 .teams{
@@ -104,7 +124,7 @@ body{
         margin-left: 0.5vw;
     }
 
-    .points div{
+    #points div{
         font-size: 2vh;
     }
 
