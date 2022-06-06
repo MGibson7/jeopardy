@@ -56,6 +56,7 @@ function gameBoard(){
             slots[slot].innerText = `${response[0].question}`
 
             reveals[slot].style.display = "grid";
+            reveals[slot].innerText = 'Click for Answer'
             reveals[slot].addEventListener('click', event =>{
                 reveals[slot].innerText = `${response[0].answer}`
 
