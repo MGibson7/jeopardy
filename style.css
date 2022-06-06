@@ -137,6 +137,7 @@ button{
         font-size: 5vh;
         color: cyan;
         text-align: center;
+        cursor: pointer;
     }
 
     #overlay{
@@ -148,6 +149,7 @@ button{
         font-size: 1.5vh;
     }
 
+   
   
     
 
